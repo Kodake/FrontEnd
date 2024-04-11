@@ -13,7 +13,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductoAgregarComponent {
 
-  producto: Producto = new Producto();
+  producto: Producto = {
+    idProducto: 0,
+    descripcion: '',
+    precio: 0,
+    existencia: 0
+  }
 
   constructor(private productoServicio: ProductoService, private enrutador: Router) { }
 
@@ -34,5 +39,15 @@ export class ProductoAgregarComponent {
 
   redireccionar() {
     this.enrutador.navigate(['/productos']);
+  }
+
+  checkInputNumber() {
+    if (!this.producto.precio) {
+      this.producto.precio = 0;
+    }
+
+    if (!this.producto.existencia) {
+      this.producto.existencia = 0;
+    }
   }
 }

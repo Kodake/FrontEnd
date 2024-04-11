@@ -51,4 +51,14 @@ export class ProductoEditarComponent implements OnInit {
   redireccionar() {
     this.enrutador.navigate(['/productos'])
   }
+
+  checkInputNumber() {
+    if (!this.producto.precio) {
+      this.producto.precio = 0;
+    }
+
+    if (!this.producto.existencia) {
+      this.producto.existencia = 0;
+    }
+  }
 }
